@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[AppUser]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	email VARCHAR(50) NOT NULL,
+	isAdmin bit NOT NULL DEFAULT 0,
+	passwd VARCHAR(50) NOT NULL,
+	nickname VARCHAR(50) NOT NULL
+)

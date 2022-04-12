@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="d0a420eb-a730-4cea-9dfa-53a2d8522733" ChangeDateTime="04/04/2022 13:33:54">
+    <Property Name="ElementName" Value="[dbo].[UK_Contact_Values]" />
+    <Property Name="ElementType" Value="SqlUniqueConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Contact]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[UK_Contact_Email]" />
+  </Operation>
+</Operations>

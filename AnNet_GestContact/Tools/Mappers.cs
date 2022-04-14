@@ -7,6 +7,7 @@ namespace AnNet_GestContact.Tools
     {
         public static API.AppUser ToApi(this DAL.AppUser user)
         {
+            if(user is null) { throw new ArgumentNullException("Utilisateur inéxistant"); }
             return new API.AppUser
             {
                 Id = user.Id,

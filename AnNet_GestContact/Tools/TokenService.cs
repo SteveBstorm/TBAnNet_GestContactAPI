@@ -16,7 +16,7 @@ namespace AnNet_GestContact.Tools
             _audience = config.GetSection("tokenValidation").GetSection("audience").Value;
             _secret = config.GetSection("tokenValidation").GetSection("secret").Value;
         }
-
+        
         public string GenerateJWT(AppUser user)
         {
             if(user.Email is null)

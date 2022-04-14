@@ -24,7 +24,16 @@ namespace AnNet_GestContact.Dal.Services
             cmd.AddParameter("email", email);
             cmd.AddParameter("passwrd", password);
 
-            return _connection.ExecuteReader(cmd, DataReader.ToUser).FirstOrDefault();
+            try
+            {
+                AppUser toto = _connection.ExecuteReader(cmd, DataReader.ToUser).First();
+                return toto;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Utilisateur inéxistant");
+            }
+            
         }
 
         public AppUser GetById(int Id)

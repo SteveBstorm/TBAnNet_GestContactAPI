@@ -22,12 +22,19 @@ namespace AnNet_GestContact.Controllers
         public IActionResult Login(LoginForm form)
         {
             if (!ModelState.IsValid) return BadRequest();
+            try
+            {
+                AppUser user = _userService.Login(form.Email, form.Password).ToApi();
+                string token = _tokenService.GenerateJWT(user);
 
-            AppUser user = _userService.Login(form.Email, form.Password).ToApi();
+                return Ok(token);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
-            string token = _tokenService.GenerateJWT(user);
-
-            return Ok(token);
+            
         }
     }
 }

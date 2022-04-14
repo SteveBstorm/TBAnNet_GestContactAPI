@@ -1,10 +1,12 @@
 using AnNet_GestContact.Dal.Services;
 using AnNet_GestContact.Tools;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.PlatformAbstractions;
 using Microsoft.IdentityModel.Tokens;
 using MT.Tools.Database;
 using System.Data;
 using System.Data.SqlClient;
+using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -35,6 +37,7 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("userPolicy", policy => policy.RequireRole("user", "admin"));
     options.AddPolicy("auth", policy => policy.RequireAuthenticatedUser());
 });
+
 
 var app = builder.Build();
 

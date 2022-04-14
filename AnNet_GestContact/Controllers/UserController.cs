@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AnNet_GestContact.Controllers
 {
-    [Authorize("adminPolicy")]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -16,13 +16,13 @@ namespace AnNet_GestContact.Controllers
         {
             _service = service;
         }
-
+        [Authorize("adminPolicy")]
         [HttpGet]
         public IActionResult Get()
         {
             return Ok(_service.GetAll());
         }
-        [AllowAnonymous]
+        [Authorize("userPolicy")]
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
